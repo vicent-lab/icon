@@ -1,0 +1,9 @@
+.env
+.mariadb/
+.kilo/
+/public/assets/uploads/*
+!/public/assets/uploads/.gitkeep
+/assets/uploads/*
+!/assets/uploads/.gitkeep
+*.log
+.DS_Store
