@@ -64,11 +64,11 @@ require PROJECT_ROOT . '/includes/header.php';
                         $isLarge = $index % 3 === 0;
                         ?>
                         <a class="project-card premium-card reveal reveal-delay-<?= ($index % 3) + 1 ?>" href="/project-details.php?id=<?= e((string) $project['id']) ?>">
-                            <div class="project-card__image" style="height: <?= $isLarge ? '520px' : '340px' ?>;">
+                            <div class="project-card__image">
                                 <img src="<?= e($projectImage) ?>" alt="<?= e($project['title'] . ' — ' . $project['project_type']) ?>" loading="lazy" width="<?= $isLarge ? '900' : '640' ?>" height="<?= $isLarge ? '600' : '420' ?>">
                                 <span class="project-card__arrow" aria-hidden="true">↗</span>
                             </div>
-                            <div class="project-card__details" style="padding: 1.75rem;">
+                            <div class="project-card__details">
                                 <div class="project-card__eyebrow">
                                     <span><?= e($project['project_type']) ?></span>
                                     <span class="project-status project-status--<?= e($project['status']) ?>"><?= e(ucfirst((string) $project['status'])) ?></span>

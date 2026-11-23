@@ -68,7 +68,7 @@ require PROJECT_ROOT . '/includes/header.php';
             <div class="container">
                 <div class="service-detail__grid">
                     <div class="service-detail__content">
-                        <div class="service-detail__image-wrap image-wrap" style="height:320px;">
+                        <div class="service-detail__image-wrap image-wrap">
                             <img src="<?= e(asset(project_image_thumbnail_path((string) $service['image']))) ?>" alt="<?= e($service['name']) ?>" loading="lazy" width="1200" height="800">
                         </div>
                         <div class="service-detail__body">
