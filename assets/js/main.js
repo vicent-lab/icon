@@ -699,3 +699,80 @@ if (lightbox instanceof HTMLDialogElement) {
     startTimer();
 })();
 
+// ============================================
+// ARCHITECTURAL SHOWCASE FILTER & LIGHTBOX
+// ============================================
+(() => {
+    const filterButtons = document.querySelectorAll('.showcase-filter-btn');
+    const cards = document.querySelectorAll('.showcase-card');
+    const lightbox = document.getElementById('showcase-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxCategory = document.getElementById('lightbox-category');
+    const lightboxLocation = document.getElementById('lightbox-location');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    if (filterButtons.length && cards.length) {
+        filterButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.showcaseFilter;
+                filterButtons.forEach((b) => {
+                    b.classList.remove('is-active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                btn.classList.add('is-active');
+                btn.setAttribute('aria-selected', 'true');
+
+                cards.forEach((card) => {
+                    const cardCat = card.dataset.category;
+                    if (filter === 'all' || cardCat === filter) {
+                        card.style.display = '';
+                        card.classList.remove('is-hidden');
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.add('is-hidden');
+                    }
+                });
+            });
+        });
+    }
+
+    if (lightbox) {
+        const openLightbox = (btn) => {
+            if (!lightboxImg || !lightboxTitle) return;
+            lightboxImg.src = btn.dataset.zoomSrc || '';
+            lightboxImg.alt = btn.dataset.zoomTitle || 'Architectural showcase view';
+            if (lightboxTitle) lightboxTitle.textContent = btn.dataset.zoomTitle || '';
+            if (lightboxCategory) lightboxCategory.textContent = btn.dataset.zoomCategory || '';
+            if (lightboxLocation) lightboxLocation.textContent = btn.dataset.zoomLocation ? `📍 ${btn.dataset.zoomLocation}` : '';
+            if (lightboxCaption) lightboxCaption.textContent = btn.dataset.zoomCaption || '';
+
+            lightbox.hidden = false;
+            lightbox.classList.add('is-active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('is-active');
+            lightbox.hidden = true;
+            document.body.style.overflow = '';
+            if (lightboxImg) lightboxImg.src = '';
+        };
+
+        document.querySelectorAll('.showcase-card__zoom-btn').forEach((btn) => {
+            btn.addEventListener('click', () => openLightbox(btn));
+        });
+
+        lightbox.querySelectorAll('[data-lightbox-close]').forEach((el) => {
+            el.addEventListener('click', closeLightbox);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !lightbox.hidden) {
+                closeLightbox();
+            }
+        });
+    }
+})();
+
+

@@ -42,6 +42,119 @@ for ($i = 1; $i <= $heroSlideCount; $i++) {
     ];
 }
 
+$architecturalShowcase = [
+    [
+        'id' => 'villa-pool',
+        'title' => 'The Horizon Pool Villa',
+        'category' => 'Luxury Villa',
+        'filter' => 'villa',
+        'location' => 'Kololo, Kampala',
+        'image' => 'images/showcase/modern-luxury-pool-villa.webp',
+        'caption' => 'Geometric contemporary two-storey luxury villa with integrated infinity swimming pool, sunken lounge, and floor-to-ceiling glass facade.',
+        'badge' => 'Featured Masterpiece'
+    ],
+    [
+        'id' => 'resort-residence',
+        'title' => 'Resort Oasis Waterfront Residence',
+        'category' => 'Waterfront Villa',
+        'filter' => 'villa',
+        'location' => 'Entebbe Peninsula',
+        'image' => 'images/showcase/resort-style-waterfront-residence.webp',
+        'caption' => 'Tropical modern living featuring stepping-stone infinity walkways, sunken lounge pods, cantilevered cedar overhangs, and poolside relaxation terrace.',
+        'badge' => 'Waterfront Living'
+    ],
+    [
+        'id' => 'dusk-glass',
+        'title' => 'Dusk Glass Pavilion Residence',
+        'category' => 'Modern Architecture',
+        'filter' => 'contemporary',
+        'location' => 'Nakasero Ridge',
+        'image' => 'images/showcase/dusk-architectural-glass-residence.webp',
+        'caption' => 'Evening showcase of expansive double-height curtain wall glazing, architectural mood lighting, and tranquil perimeter reflecting pool.',
+        'badge' => 'Signature Design'
+    ],
+    [
+        'id' => 'cantilever-mansion',
+        'title' => 'The Cantilever Terrace Mansion',
+        'category' => 'Bespoke Contemporary',
+        'filter' => 'contemporary',
+        'location' => 'Muyenga Hills',
+        'image' => 'images/showcase/minimalist-cantilever-mansion.webp',
+        'caption' => 'Striking cantilevered structure engineered with exposed architectural concrete, landscaped roof garden terrace, and recessed modern vehicle bays.',
+        'badge' => 'Structural Innovation'
+    ],
+    [
+        'id' => 'timber-multilevel',
+        'title' => 'Timber-Deck Multilevel Residence',
+        'category' => 'Executive Living',
+        'filter' => 'residence',
+        'location' => 'Naguru Crest',
+        'image' => 'images/showcase/timber-deck-multi-level-home.webp',
+        'caption' => 'Warm natural stone cladding paired with multi-tiered hardwood decking, outdoor entertaining barbecue bar, and landscaped lawn gardens.',
+        'badge' => 'Indoor-Outdoor Living'
+    ],
+    [
+        'id' => 'lumina-villa',
+        'title' => 'The Lumina Modern Villa',
+        'category' => 'Contemporary Villa',
+        'filter' => 'villa',
+        'location' => 'Lubowa Estate',
+        'image' => 'images/showcase/illuminated-modern-family-villa.webp',
+        'caption' => 'Two-storey family villa highlighting custom stonework accents, private glass-railed balconies, warm LED architectural lighting, and security compound.',
+        'badge' => 'Family Estate'
+    ],
+    [
+        'id' => 'suburban-estate',
+        'title' => 'The Grand Suburban Estate',
+        'category' => 'Residential Estate',
+        'filter' => 'residence',
+        'location' => 'Kigo, Lake Victoria',
+        'image' => 'images/showcase/suburban-executive-estate.webp',
+        'caption' => 'Stately suburban residence with classical clay hipped rooflines, expansive security walling, landscaped turf lawn, and double-gated entryway.',
+        'badge' => 'Gated Compound'
+    ],
+    [
+        'id' => 'luxury-interior',
+        'title' => 'Bespoke Interior & Living Atrium',
+        'category' => 'Interior Architecture',
+        'filter' => 'interior',
+        'location' => 'Kololo, Kampala',
+        'image' => 'images/showcase/luxury-interior-living-architecture.webp',
+        'caption' => 'Double-height sunlit living hall with heritage bay windows, bespoke timber wall finishes, artisan furniture curation, and open-plan spatial harmony.',
+        'badge' => 'Interior Excellence'
+    ],
+    [
+        'id' => 'twin-townhomes',
+        'title' => 'Contemporary Twin Townhomes',
+        'category' => 'Multi-Family Development',
+        'filter' => 'contemporary',
+        'location' => 'Ntinda View',
+        'image' => 'images/showcase/contemporary-townhomes-duplex.webp',
+        'caption' => 'Modern architectural duplex townhomes featuring rooftop patio terraces, manicured perimeter hedges, and dedicated dual-car paved driveway.',
+        'badge' => 'Urban Living'
+    ],
+    [
+        'id' => 'executive-bungalow',
+        'title' => 'The Executive Courtyard Bungalow',
+        'category' => 'Executive Residence',
+        'filter' => 'residence',
+        'location' => 'Entebbe Road',
+        'image' => 'images/showcase/executive-bungalow-paved-compound.webp',
+        'caption' => 'Spacious executive home featuring an expansive interlocking stone compound, perimeter lighting, secure gated compound, and perimeter gardens.',
+        'badge' => 'Executive Comfort'
+    ],
+    [
+        'id' => 'portico-villa',
+        'title' => 'The Mediterranean Portico Villa',
+        'category' => 'Mediterranean & Classical',
+        'filter' => 'villa',
+        'location' => 'Bugolobi, Kampala',
+        'image' => 'images/showcase/curved-portico-mediterranean-villa.webp',
+        'caption' => 'Elegantly proportioned Mediterranean villa with arched entrance porticos, decorative wrought iron balustrades, and terracotta tile roofing.',
+        'badge' => 'Classic Elegance'
+    ]
+];
+
 $services = [];
 $projects = [];
 $testimonials = [];
@@ -289,7 +402,7 @@ require PROJECT_ROOT . '/includes/header.php';
         <div class="container who-we-are__grid">
             <div class="who-we-are__visual reveal reveal-delay-1">
                 <div class="image-wrap reveal reveal-delay-2">
-                    <img src="<?= e(asset('images/site/site-construction-workers.webp')) ?>" alt="ICON Construction team coordinating work on site" loading="lazy" width="1200" height="800">
+                    <img src="<?= e(asset('images/showcase/illuminated-modern-family-villa.webp')) ?>" alt="ICON Construction bespoke architectural engineering and quality construction" loading="lazy" width="1200" height="800">
                 </div>
                 <span class="who-we-are__badge reveal reveal-delay-3"><span>01</span> Every build begins with purpose</span>
             </div>
@@ -456,6 +569,118 @@ require PROJECT_ROOT . '/includes/header.php';
             <?php endif; ?>
         </div>
     </section>
+
+    <!-- ============================================
+         6.5 ARCHITECTURAL PORTFOLIO SHOWCASE
+         ============================================ -->
+    <section class="showcase section-pad" id="showcase" aria-labelledby="showcase-heading">
+        <div class="container">
+            <div class="section-heading reveal reveal-delay-1" style="text-align: center; max-width: 820px; margin: 0 auto 2.5rem;">
+                <p class="eyebrow eyebrow--gold"><span class="eyebrow__line"></span> Signature Architectural Portfolio</p>
+                <h2 id="showcase-heading">Crafted for Distinction.<br><span>Built for Generations.</span></h2>
+                <p class="showcase-intro" style="color: var(--color-text-secondary); margin-top: 1rem; font-size: 1.0625rem; line-height: 1.6;">
+                    Explore our curated collection of signature modern pool villas, cantilevered hillside estates, bespoke interiors, and private residential compounds designed and built to the highest structural standards.
+                </p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="showcase-filters reveal reveal-delay-2" role="tablist" aria-label="Showcase portfolio filters">
+                <button type="button" class="showcase-filter-btn is-active" data-showcase-filter="all" role="tab" aria-selected="true">
+                    All Highlights <span class="filter-count">(11)</span>
+                </button>
+                <button type="button" class="showcase-filter-btn" data-showcase-filter="villa" role="tab" aria-selected="false">
+                    Luxury Villas <span class="filter-count">(4)</span>
+                </button>
+                <button type="button" class="showcase-filter-btn" data-showcase-filter="contemporary" role="tab" aria-selected="false">
+                    Contemporary Mansions <span class="filter-count">(3)</span>
+                </button>
+                <button type="button" class="showcase-filter-btn" data-showcase-filter="residence" role="tab" aria-selected="false">
+                    Executive Estates <span class="filter-count">(3)</span>
+                </button>
+                <button type="button" class="showcase-filter-btn" data-showcase-filter="interior" role="tab" aria-selected="false">
+                    Interior Living <span class="filter-count">(1)</span>
+                </button>
+            </div>
+
+            <!-- Showcase Grid -->
+            <div class="showcase-grid reveal reveal-delay-3" id="showcase-grid">
+                <?php foreach ($architecturalShowcase as $index => $item): ?>
+                    <article class="showcase-card premium-card" data-category="<?= e($item['filter']) ?>" id="<?= e($item['id']) ?>">
+                        <div class="showcase-card__image-wrap">
+                            <img src="<?= e(asset($item['image'])) ?>"
+                                 alt="<?= e($item['title'] . ' — ' . $item['category']) ?>"
+                                 loading="lazy"
+                                 width="800"
+                                 height="540"
+                                 class="showcase-card__img">
+                            <div class="showcase-card__overlay">
+                                <button type="button"
+                                        class="showcase-card__zoom-btn"
+                                        aria-label="Enlarge view of <?= e($item['title']) ?>"
+                                        data-zoom-src="<?= e(asset($item['image'])) ?>"
+                                        data-zoom-title="<?= e($item['title']) ?>"
+                                        data-zoom-category="<?= e($item['category']) ?>"
+                                        data-zoom-caption="<?= e($item['caption']) ?>"
+                                        data-zoom-location="<?= e($item['location']) ?>">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                                    </svg>
+                                    <span>Expand Photo</span>
+                                </button>
+                            </div>
+                            <span class="showcase-card__badge"><?= e($item['badge']) ?></span>
+                        </div>
+                        <div class="showcase-card__content">
+                            <div class="showcase-card__meta">
+                                <span class="showcase-card__category"><?= e($item['category']) ?></span>
+                                <span class="showcase-card__location">📍 <?= e($item['location']) ?></span>
+                            </div>
+                            <h3 class="showcase-card__title"><?= e($item['title']) ?></h3>
+                            <p class="showcase-card__caption"><?= e($item['caption']) ?></p>
+                            <div class="showcase-card__footer">
+                                <a href="/quote.php?service=residential&ref=<?= urlencode($item['title']) ?>" class="showcase-card__cta">
+                                    Inquire About This Design <span aria-hidden="true">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+
+            <!-- Section Bottom Action -->
+            <div class="showcase__actions reveal reveal-delay-2" style="text-align: center; margin-top: 3rem;">
+                <p style="color: var(--color-text-secondary); margin-bottom: 1.25rem; font-size: 0.95rem;">
+                    Have an architectural concept or residential parcel ready for development?
+                </p>
+                <div style="display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                    <a class="button button--primary" href="/quote.php">Start Your Project Consultation <span aria-hidden="true">↗</span></a>
+                    <a class="button button--outline" href="/projects.php">Browse All Built Projects <span aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Lightbox Modal -->
+    <div class="showcase-lightbox" id="showcase-lightbox" role="dialog" aria-modal="true" aria-label="Photo Lightbox" hidden>
+        <div class="showcase-lightbox__backdrop" data-lightbox-close></div>
+        <div class="showcase-lightbox__dialog">
+            <button type="button" class="showcase-lightbox__close" data-lightbox-close aria-label="Close photo preview">✕</button>
+            <div class="showcase-lightbox__figure">
+                <img src="" alt="" class="showcase-lightbox__img" id="lightbox-img">
+                <div class="showcase-lightbox__details">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
+                        <span class="showcase-card__category" id="lightbox-category"></span>
+                        <span class="showcase-card__location" id="lightbox-location" style="color: rgba(255,255,255,0.8);"></span>
+                    </div>
+                    <h3 id="lightbox-title" style="color: #fff; margin: 0 0 8px 0; font-size: 1.35rem; font-family: var(--font-display);"></h3>
+                    <p id="lightbox-caption" style="color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem; line-height: 1.5;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ============================================
          7. TESTIMONIALS / CLIENT REVIEWS
