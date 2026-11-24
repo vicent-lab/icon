@@ -153,7 +153,117 @@ $architecturalShowcase = [
         'image' => 'images/showcase/curved-portico-mediterranean-villa.webp',
         'caption' => 'Elegantly proportioned Mediterranean villa with arched entrance porticos, decorative wrought iron balustrades, and terracotta tile roofing.',
         'badge' => 'Classic Elegance'
-    ]
+    ],
+    [
+        'id' => 'pool-villa-infinity',
+        'title' => 'Infinity Pool Luxury Villa',
+        'category' => 'Luxury Villa',
+        'filter' => 'villa',
+        'location' => 'Kololo, Kampala',
+        'image' => 'images/showcase/pool-villa-infinity-modern.jpg',
+        'caption' => 'Contemporary two-storey luxury villa with integrated infinity swimming pool, sunken spa terrace, and expansive floor-to-ceiling glazed facades.',
+        'badge' => 'Luxury Living'
+    ],
+    [
+        'id' => 'tropical-pool-dusk',
+        'title' => 'Tropical Pool Residence at Dusk',
+        'category' => 'Waterfront Villa',
+        'filter' => 'villa',
+        'location' => 'Entebbe Peninsula',
+        'image' => 'images/showcase/tropical-pool-residence-dusk.jpg',
+        'caption' => 'Stunning tropical modern home with palm-lined pool deck, cantilevered cedar overhangs, sunken hot-tub, and lounge seating at twilight.',
+        'badge' => 'Tropical Retreat'
+    ],
+    [
+        'id' => 'dark-glass-reflecting',
+        'title' => 'Dark Glass Reflecting Pool Residence',
+        'category' => 'Modern Architecture',
+        'filter' => 'contemporary',
+        'location' => 'Nakasero Ridge',
+        'image' => 'images/showcase/dark-glass-reflecting-pool-residence.jpg',
+        'caption' => 'Bold architectural statement in dark-framed steel and glass with a serene lap pool, desert-landscape terracing, and mood-lit interior lounge.',
+        'badge' => 'Signature Design'
+    ],
+    [
+        'id' => 'green-roof-minimalist',
+        'title' => 'The Green Roof Minimalist Mansion',
+        'category' => 'Bespoke Contemporary',
+        'filter' => 'contemporary',
+        'location' => 'Muyenga Hills',
+        'image' => 'images/showcase/minimalist-green-roof-modern.jpg',
+        'caption' => 'Ultra-minimalist cantilever villa featuring a lush planted roof garden, exposed architectural concrete, full-height glazing, and geometric hardscape.',
+        'badge' => 'Eco Innovation'
+    ],
+    [
+        'id' => 'stone-wood-deck',
+        'title' => 'Stone & Timber Outdoor Living Home',
+        'category' => 'Executive Living',
+        'filter' => 'residence',
+        'location' => 'Naguru Crest',
+        'image' => 'images/showcase/stone-wood-deck-outdoor-living.jpg',
+        'caption' => 'Warm natural stone cladding, multi-level hardwood deck, outdoor kitchen and barbecue terrace, and lush tropical garden surroundings.',
+        'badge' => 'Outdoor Living'
+    ],
+    [
+        'id' => 'illuminated-balcony-townhouse',
+        'title' => 'Illuminated Balcony Executive Townhouse',
+        'category' => 'Contemporary Villa',
+        'filter' => 'villa',
+        'location' => 'Lubowa Estate',
+        'image' => 'images/showcase/illuminated-balcony-townhouse.jpg',
+        'caption' => 'Elegant two-storey townhouse with custom stone-and-brick accents, glass-railed balconies, feature uplighting, stairway entry, and gated compound.',
+        'badge' => 'Urban Estate'
+    ],
+    [
+        'id' => 'clay-roof-estate',
+        'title' => 'Clay Roof Estate — Kampala',
+        'category' => 'Residential Estate',
+        'filter' => 'residence',
+        'location' => 'Bunga, Kampala',
+        'image' => 'images/showcase/clay-roof-estate-kampala.jpg',
+        'caption' => 'Stately two-storey Kampala residence with classic clay tile hipped roof, perimeter security wall, manicured lawn, and double entry gate.',
+        'badge' => 'Family Estate'
+    ],
+    [
+        'id' => 'interior-bay-windows',
+        'title' => 'Heritage Bay Window Living Atrium',
+        'category' => 'Interior Architecture',
+        'filter' => 'interior',
+        'location' => 'Kololo, Kampala',
+        'image' => 'images/showcase/interior-living-bay-windows.jpg',
+        'caption' => 'Sunlit double-height living hall with curved heritage bay windows, bespoke timber-and-plaster finishes, eclectic furniture curation, and open spatial harmony.',
+        'badge' => 'Interior Excellence'
+    ],
+    [
+        'id' => 'yellow-duplex-kampala',
+        'title' => 'Contemporary Duplex Compound',
+        'category' => 'Multi-Family Development',
+        'filter' => 'contemporary',
+        'location' => 'Ntinda, Kampala',
+        'image' => 'images/showcase/yellow-duplex-compound-kampala.jpg',
+        'caption' => 'Modern rendered duplex with private balconies, manicured compound, paved driveway, and secure perimeter gating — ideal for urban family living.',
+        'badge' => 'Urban Living'
+    ],
+    [
+        'id' => 'hexagon-bungalow',
+        'title' => 'The Hexagon Paving Courtyard Bungalow',
+        'category' => 'Executive Residence',
+        'filter' => 'residence',
+        'location' => 'Entebbe Road',
+        'image' => 'images/showcase/portico-bungalow-hexagon-paving.jpg',
+        'caption' => 'Generous executive bungalow with decorative hexagonal interlocking stone compound, perimeter lighting, grand arched entrance, and landscaped gardens.',
+        'badge' => 'Executive Comfort'
+    ],
+    [
+        'id' => 'tropical-resort-palms',
+        'title' => 'Tropical Resort Pool & Palms Villa',
+        'category' => 'Luxury Villa',
+        'filter' => 'villa',
+        'location' => 'Entebbe, Lake Victoria',
+        'image' => 'images/showcase/tropical-resort-pool-palms.jpg',
+        'caption' => 'Resort-inspired tropical villa with palm-shaded infinity pool, terraced pool decking, sun lounger patio, and lush tropical perimeter landscaping.',
+        'badge' => 'Resort Living'
+    ],
 ];
 
 $services = [];
