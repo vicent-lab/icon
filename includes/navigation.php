@@ -9,6 +9,7 @@ $navigationWhatsapp = company_whatsapp_href();
 $companyName = company_setting('company_name');
 $companyLogo = company_asset_href('company_logo');
 $companyTagline = company_setting('company_tagline');
+$navSocialChannels = company_social_links();
 ?>
 <header class="site-header" id="site-header">
     <div class="container site-header__inner">
@@ -23,6 +24,17 @@ $companyTagline = company_setting('company_tagline');
             <a href="/projects.php">Projects</a>
             <a href="/blog.php">Insights</a>
             <a href="/contact.php">Contact</a>
+            <div class="site-nav__social" aria-label="Header social media">
+                <a href="<?= e($navSocialChannels['tiktok']['href']) ?>" target="_blank" rel="noopener noreferrer" class="header-social-btn header-social-btn--tiktok" aria-label="TikTok" title="Follow us on TikTok">
+                    <?= social_icon_svg('tiktok', 17) ?>
+                </a>
+                <a href="<?= e($navSocialChannels['whatsapp']['href']) ?>" target="_blank" rel="noopener noreferrer" class="header-social-btn header-social-btn--whatsapp" aria-label="WhatsApp" title="Chat on WhatsApp">
+                    <?= social_icon_svg('whatsapp', 17) ?>
+                </a>
+                <a href="<?= e($navSocialChannels['facebook']['href']) ?>" target="_blank" rel="noopener noreferrer" class="header-social-btn header-social-btn--facebook" aria-label="Facebook" title="Follow us on Facebook">
+                    <?= social_icon_svg('facebook', 17) ?>
+                </a>
+            </div>
             <a class="site-nav__cta btn btn--primary" href="/quote.php">Request a Quote <span aria-hidden="true">↗</span></a>
         </nav>
         <button class="site-nav__toggle btn btn--outline" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
@@ -59,6 +71,23 @@ $companyTagline = company_setting('company_tagline');
             <?php if ($navigationWhatsapp !== ''): ?>
                 <a href="<?= e($navigationWhatsapp) ?>" target="_blank" rel="noopener noreferrer" class="mobile-contact-item mobile-contact-item--whatsapp">WhatsApp us <span aria-hidden="true">↗</span></a>
             <?php endif; ?>
+        </div>
+        <div class="mobile-menu__social" aria-label="Social media">
+            <span class="mobile-menu__social-label">Follow Us</span>
+            <div class="mobile-social-icons">
+                <a href="<?= e($navSocialChannels['tiktok']['href']) ?>" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-icon-btn--tiktok" aria-label="TikTok">
+                    <?= social_icon_svg('tiktok', 18) ?>
+                    <span>TikTok</span>
+                </a>
+                <a href="<?= e($navSocialChannels['whatsapp']['href']) ?>" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-icon-btn--whatsapp" aria-label="WhatsApp">
+                    <?= social_icon_svg('whatsapp', 18) ?>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="<?= e($navSocialChannels['facebook']['href']) ?>" target="_blank" rel="noopener noreferrer" class="social-icon-btn social-icon-btn--facebook" aria-label="Facebook">
+                    <?= social_icon_svg('facebook', 18) ?>
+                    <span>Facebook</span>
+                </a>
+            </div>
         </div>
     </nav>
 </header>

@@ -2,11 +2,7 @@
 $footerWhatsapp = company_whatsapp_href();
 $footerCompanyName = company_setting('company_name');
 $footerLogo = company_asset_href('company_logo');
-$footerSocialLinks = [
-    'Facebook' => company_social_href('company_facebook_url'),
-    'Instagram' => company_social_href('company_instagram_url'),
-    'LinkedIn' => company_social_href('company_linkedin_url'),
-];
+$footerSocialChannels = company_social_links();
 $footerPhone = company_phone_display();
 $footerEmail = company_setting('company_email');
 $footerAddress = company_setting('company_address');
@@ -20,12 +16,17 @@ $footerBusinessHours = company_setting('company_business_hours');
                 <span class="brand__name"><?= e($footerCompanyName) ?></span>
             </a>
             <p><?= e(company_setting('company_tagline')) ?></p>
-            <div class="footer-social">
-                <?php if ($footerWhatsapp !== ''): ?>
-                    <a href="<?= e($footerWhatsapp) ?>" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
-                <?php endif; ?>
-                <?php foreach ($footerSocialLinks as $label => $href): ?>
-                    <?php if ($href !== ''): ?><a href="<?= e($href) ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= e($label) ?>"><?= strtoupper(substr($label, 0, 1)) ?></a><?php endif; ?>
+            <div class="footer-social" aria-label="Social media channels">
+                <?php foreach ($footerSocialChannels as $key => $social): ?>
+                    <a href="<?= e($social['href']) ?>"
+                       class="footer-social__link footer-social__link--<?= e($key) ?>"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="<?= e($social['label']) ?>"
+                       title="<?= e($social['label']) ?>">
+                        <?= social_icon_svg($social['icon'], 20) ?>
+                        <span class="visually-hidden"><?= e($social['label']) ?></span>
+                    </a>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -88,12 +89,10 @@ $footerBusinessHours = company_setting('company_business_hours');
         <span><?= e($footerAddress) ?> <span aria-hidden="true">·</span> <?= e($footerCompanyName) ?></span>
     </div>
 </footer>
-<?php $footerWhatsapp = company_whatsapp_href(); ?>
-<?php if ($footerWhatsapp !== ''): ?>
-    <a class="whatsapp-float" href="<?= e($footerWhatsapp) ?>" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-        <span aria-hidden="true">💬</span>
-        <span class="whatsapp-float__label">WhatsApp</span>
-    </a>
-<?php endif; ?>
+<?php $whatsappLink = company_whatsapp_href() ?: 'https://wa.me/256700000000'; ?>
+<a class="whatsapp-float" href="<?= e($whatsappLink) ?>" target="_blank" rel="noopener noreferrer" aria-label="Chat with ICON Construction on WhatsApp">
+    <span class="whatsapp-float__icon" aria-hidden="true"><?= social_icon_svg('whatsapp', 24) ?></span>
+    <span class="whatsapp-float__label">WhatsApp</span>
+</a>
 </body>
 </html>

@@ -85,6 +85,34 @@ require PROJECT_ROOT . '/includes/header.php';
                     </div>
                     <?php endif; ?>
                 </div>
+
+                <div class="contact-social-section">
+                    <span class="contact-label">Connect on Social Media</span>
+                    <div class="contact-social-grid">
+                        <?php $contactSocials = company_social_links(); ?>
+                        <a href="<?= e($contactSocials['tiktok']['href']) ?>" target="_blank" rel="noopener noreferrer" class="contact-social-card contact-social-card--tiktok" aria-label="TikTok">
+                            <span class="contact-social-card__icon"><?= social_icon_svg('tiktok', 22) ?></span>
+                            <div class="contact-social-card__info">
+                                <strong>TikTok</strong>
+                                <span><?= e($contactSocials['tiktok']['handle']) ?></span>
+                            </div>
+                        </a>
+                        <a href="<?= e($contactSocials['whatsapp']['href']) ?>" target="_blank" rel="noopener noreferrer" class="contact-social-card contact-social-card--whatsapp" aria-label="WhatsApp">
+                            <span class="contact-social-card__icon"><?= social_icon_svg('whatsapp', 22) ?></span>
+                            <div class="contact-social-card__info">
+                                <strong>WhatsApp</strong>
+                                <span>Direct Chat</span>
+                            </div>
+                        </a>
+                        <a href="<?= e($contactSocials['facebook']['href']) ?>" target="_blank" rel="noopener noreferrer" class="contact-social-card contact-social-card--facebook" aria-label="Facebook">
+                            <span class="contact-social-card__icon"><?= social_icon_svg('facebook', 22) ?></span>
+                            <div class="contact-social-card__info">
+                                <strong>Facebook</strong>
+                                <span>Official Page</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Right column: Contact form -->

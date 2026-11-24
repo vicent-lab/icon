@@ -1048,6 +1048,25 @@ require PROJECT_ROOT . '/includes/header.php';
                     </div>
                     <?php endif; ?>
                 </div>
+
+                <div class="contact-social-section reveal reveal-delay-2" style="margin-top: 1.75rem;">
+                    <span class="contact-label" style="display: block; margin-bottom: 0.75rem;">Connect on Social Media</span>
+                    <div class="contact-social-pills">
+                        <?php $homeSocials = company_social_links(); ?>
+                        <a href="<?= e($homeSocials['tiktok']['href']) ?>" target="_blank" rel="noopener noreferrer" class="social-pill social-pill--tiktok" aria-label="TikTok">
+                            <?= social_icon_svg('tiktok', 18) ?>
+                            <span>TikTok</span>
+                        </a>
+                        <a href="<?= e($homeSocials['whatsapp']['href']) ?>" target="_blank" rel="noopener noreferrer" class="social-pill social-pill--whatsapp" aria-label="WhatsApp">
+                            <?= social_icon_svg('whatsapp', 18) ?>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="<?= e($homeSocials['facebook']['href']) ?>" target="_blank" rel="noopener noreferrer" class="social-pill social-pill--facebook" aria-label="Facebook">
+                            <?= social_icon_svg('facebook', 18) ?>
+                            <span>Facebook</span>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="contact-preview__form reveal reveal-delay-2">
                 <h3>Send us a message</h3>

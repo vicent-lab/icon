@@ -20,6 +20,7 @@ $settingFields = [
     'company_google_maps_location' => ['Google Maps URL or location', 'text', 1000],
     'company_business_hours' => ['Business hours', 'textarea', 1000],
     'company_facebook_url' => ['Facebook URL', 'url', 500],
+    'company_tiktok_url' => ['TikTok URL', 'url', 500],
     'company_instagram_url' => ['Instagram URL', 'url', 500],
     'company_linkedin_url' => ['LinkedIn URL', 'url', 500],
 ];
@@ -93,6 +94,7 @@ try {
 
         $allowedSocialHosts = [
             'company_facebook_url' => ['facebook.com', 'www.facebook.com', 'm.facebook.com'],
+            'company_tiktok_url' => ['tiktok.com', 'www.tiktok.com', 'vm.tiktok.com', 'm.tiktok.com'],
             'company_instagram_url' => ['instagram.com', 'www.instagram.com'],
             'company_linkedin_url' => ['linkedin.com', 'www.linkedin.com'],
         ];

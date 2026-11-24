@@ -112,6 +112,7 @@ function company_settings(): array
         'company_google_maps_location' => '',
         'company_business_hours' => '',
         'company_facebook_url' => '',
+        'company_tiktok_url' => '',
         'company_instagram_url' => '',
         'company_linkedin_url' => '',
         'company_logo' => 'images/icon-mark.svg',
@@ -325,6 +326,7 @@ function company_social_href(string $settingKey): string
     $host = strtolower((string) parse_url($url, PHP_URL_HOST));
     $allowedHosts = match ($settingKey) {
         'company_facebook_url' => ['facebook.com', 'www.facebook.com', 'm.facebook.com'],
+        'company_tiktok_url' => ['tiktok.com', 'www.tiktok.com', 'vm.tiktok.com', 'm.tiktok.com'],
         'company_instagram_url' => ['instagram.com', 'www.instagram.com'],
         'company_linkedin_url' => ['linkedin.com', 'www.linkedin.com'],
         default => [],
@@ -356,4 +358,74 @@ function company_whatsapp_href(): string
     }
 
     return 'https://wa.me/' . $number;
+}
+
+/**
+ * Return accessible SVG markup for social network icons.
+ */
+function social_icon_svg(string $platform, int $size = 20): string
+{
+    $platform = strtolower(trim($platform));
+
+    return match ($platform) {
+        'tiktok' => '<svg width="' . $size . '" height="' . $size . '" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.86 4.43c.12-.11.23-.23.33-.35a6.28 6.28 0 0 0 1.58-4.32V8.92a8.28 8.28 0 0 0 4.82 1.52V7c-.34-.01-.68-.11-1-.31z"/></svg>',
+        'whatsapp' => '<svg width="' . $size . '" height="' . $size . '" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m-3.53 4.26c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.44s1.02 2.83 1.16 3.02c.14.19 2 3.06 4.85 4.29.68.29 1.21.46 1.62.6.68.22 1.3.19 1.79.12.55-.08 1.68-.69 1.92-1.36.24-.67.24-1.25.17-1.36-.07-.11-.26-.17-.55-.32-.29-.14-1.68-.83-1.94-.93-.26-.1-.45-.14-.64.14-.19.29-.74.93-.91 1.12-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01z"/></svg>',
+        'facebook' => '<svg width="' . $size . '" height="' . $size . '" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>',
+        'instagram' => '<svg width="' . $size . '" height="' . $size . '" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>',
+        'linkedin' => '<svg width="' . $size . '" height="' . $size . '" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 0 0 1.64-1.64 1.64 1.64 0 0 0-1.64-1.64 1.64 1.64 0 0 0-1.64 1.64c0 .91.73 1.64 1.64 1.64m1.39 9.74v-8.37H5.07v8.37h2.78z"/></svg>',
+        default => '<span aria-hidden="true">↗</span>',
+    };
+}
+
+/**
+ * Return list of active or fallback social channels with their labels and icons.
+ */
+function company_social_links(): array
+{
+    $tiktok = company_social_href('company_tiktok_url') ?: 'https://www.tiktok.com/@iconconstructionug';
+    $whatsapp = company_whatsapp_href() ?: 'https://wa.me/256700000000';
+    $facebook = company_social_href('company_facebook_url') ?: 'https://www.facebook.com/iconconstructionug';
+    $instagram = company_social_href('company_instagram_url');
+    $linkedin = company_social_href('company_linkedin_url');
+
+    $links = [
+        'tiktok' => [
+            'label' => 'TikTok',
+            'href' => $tiktok,
+            'icon' => 'tiktok',
+            'handle' => '@iconconstructionug',
+        ],
+        'whatsapp' => [
+            'label' => 'WhatsApp',
+            'href' => $whatsapp,
+            'icon' => 'whatsapp',
+            'handle' => 'Chat on WhatsApp',
+        ],
+        'facebook' => [
+            'label' => 'Facebook',
+            'href' => $facebook,
+            'icon' => 'facebook',
+            'handle' => 'facebook.com/iconconstructionug',
+        ],
+    ];
+
+    if ($instagram !== '') {
+        $links['instagram'] = [
+            'label' => 'Instagram',
+            'href' => $instagram,
+            'icon' => 'instagram',
+            'handle' => 'Instagram',
+        ];
+    }
+
+    if ($linkedin !== '') {
+        $links['linkedin'] = [
+            'label' => 'LinkedIn',
+            'href' => $linkedin,
+            'icon' => 'linkedin',
+            'handle' => 'LinkedIn',
+        ];
+    }
+
+    return $links;
 }
