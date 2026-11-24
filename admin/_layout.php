@@ -17,6 +17,7 @@ function admin_start(string $title): void
         'Categories' => 'manage.php?type=blog_categories',
         'Messages' => 'manage.php?type=contact_messages',
         'Quote requests' => 'manage.php?type=quote_requests',
+        'Subscribers' => 'manage.php?type=newsletter_subscribers',
         'Company settings' => 'settings.php',
     ];
     ?>
@@ -50,6 +51,7 @@ function admin_start(string $title): void
                         'Categories' => 'blog_categories',
                         'Messages' => 'contact_messages',
                         'Quote requests' => 'quote_requests',
+                        'Subscribers' => 'newsletter_subscribers',
                         'Company settings' => 'settings',
                         default => 'dashboard',
                     };

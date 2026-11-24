@@ -134,6 +134,18 @@ $resources = [
         'columns' => ['full_name', 'project_type', 'location', 'status', 'created_at'],
         'order_by' => 'created_at DESC',
     ],
+    'newsletter_subscribers' => [
+        'title' => 'Newsletter Subscribers',
+        'table' => 'newsletter_subscribers',
+        'section' => 'newsletter_subscribers',
+        'fields' => [
+            'email' => ['Subscriber email', 'text', true, 190],
+            'source' => ['Subscription source', 'text', true, 60],
+            'status' => ['Status', 'select', true, ['subscribed', 'unsubscribed']],
+        ],
+        'columns' => ['email', 'source', 'status', 'created_at'],
+        'order_by' => 'created_at DESC',
+    ],
 ];
 
 $type = (string) ($_GET['type'] ?? $_POST['type'] ?? 'projects');

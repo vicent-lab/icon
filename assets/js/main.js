@@ -775,4 +775,70 @@ if (lightbox instanceof HTMLDialogElement) {
     }
 })();
 
+// ============================================
+// NEWSLETTER AJAX SUBSCRIPTION
+// ============================================
+(() => {
+    document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = form.querySelector('[data-newsletter-submit]');
+            const statusEl = form.querySelector('[data-newsletter-status]');
+            const emailInput = form.querySelector('input[type="email"]');
+
+            if (!emailInput || !emailInput.value.trim()) return;
+
+            const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Subscribing...';
+            }
+            if (statusEl) {
+                statusEl.textContent = '';
+                statusEl.className = 'newsletter-form__status';
+            }
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch('/subscribe.php', {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
+                    body: formData
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    if (statusEl) {
+                        statusEl.className = 'newsletter-form__status is-success';
+                        statusEl.textContent = '✓ ' + (data.message || 'Subscribed successfully!');
+                    }
+                    emailInput.value = '';
+                    if (submitBtn) {
+                        submitBtn.innerHTML = 'Subscribed ✓';
+                    }
+                } else {
+                    if (statusEl) {
+                        statusEl.className = 'newsletter-form__status is-error';
+                        statusEl.textContent = data.message || 'Please check your email and try again.';
+                    }
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnHtml;
+                    }
+                }
+            } catch (err) {
+                if (statusEl) {
+                    statusEl.className = 'newsletter-form__status is-error';
+                    statusEl.textContent = 'Connection error. Please try again.';
+                }
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnHtml;
+                }
+            }
+        });
+    });
+})();
+
+
 

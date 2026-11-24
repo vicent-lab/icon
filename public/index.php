@@ -13,6 +13,7 @@ $companyPhone = company_setting('company_phone');
 $companyEmail = company_setting('company_email');
 $companyPhoneHref = company_phone_href();
 $companyWhatsappHref = company_whatsapp_href();
+$newsletterStatus = (string) ($_GET['newsletter'] ?? '');
 $vision = company_setting('vision');
 $mission = company_setting('mission');
 $aboutDescription = company_setting('about_description');
@@ -997,6 +998,82 @@ require PROJECT_ROOT . '/includes/header.php';
             <div class="cta__actions">
                 <a class="button button--primary" href="<?= e($contactHref) ?>">Request a Quote <span aria-hidden="true">↗</span></a>
                 <a class="button button--outline" href="/contact.php">Talk to ICON <span aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         14.5 NEWSLETTER SUBSCRIBE SECTION
+         ============================================ -->
+    <section class="newsletter-section section-pad" id="newsletter" aria-labelledby="newsletter-heading">
+        <div class="container">
+            <div class="newsletter-card reveal reveal-delay-1">
+                <div class="newsletter-card__content">
+                    <p class="eyebrow eyebrow--gold"><span class="eyebrow__line"></span> Stay Informed &amp; Ahead</p>
+                    <h2 id="newsletter-heading">Subscribe to ICON<br><span>Construction Insights.</span></h2>
+                    <p class="newsletter-intro">
+                        Join property developers, homeowners, and architectural enthusiasts. Get quarterly material cost updates, structural engineering tips, and first looks at our newest luxury residential builds.
+                    </p>
+                    <ul class="newsletter-perks">
+                        <li><span aria-hidden="true">✓</span> Quarterly building material cost updates</li>
+                        <li><span aria-hidden="true">✓</span> Exclusive architectural project reveals</li>
+                        <li><span aria-hidden="true">✓</span> Practical engineering guidance &amp; cost-saving advice</li>
+                        <li><span aria-hidden="true">✓</span> Zero spam, easy one-click unsubscribe anytime</li>
+                    </ul>
+                </div>
+                <div class="newsletter-card__action">
+                    <?php if ($newsletterStatus === 'subscribed'): ?>
+                        <div class="newsletter-feedback newsletter-feedback--success" role="alert">
+                            <span class="newsletter-feedback__icon" aria-hidden="true">✓</span>
+                            <div>
+                                <strong>You are subscribed!</strong>
+                                <p>Thank you for subscribing. We look forward to sharing our latest insights with you.</p>
+                            </div>
+                        </div>
+                    <?php elseif ($newsletterStatus === 'invalid'): ?>
+                        <div class="newsletter-feedback newsletter-feedback--error" role="alert">
+                            <span class="newsletter-feedback__icon" aria-hidden="true">⚠</span>
+                            <div>
+                                <strong>Invalid email</strong>
+                                <p>Please enter a valid email address and try again.</p>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+                    <form class="newsletter-form" action="/subscribe.php" method="POST" data-newsletter-form>
+                        <!-- Honeypot -->
+                        <div style="position: absolute; left: -9999px; opacity: 0;" aria-hidden="true">
+                            <label for="newsletter_website_hp">Leave this empty</label>
+                            <input type="text" name="website_hp" id="newsletter_website_hp" tabindex="-1" autocomplete="off">
+                        </div>
+                        <input type="hidden" name="source" value="homepage_card">
+
+                        <div class="newsletter-form__field">
+                            <label for="newsletter-email" class="visually-hidden">Email address</label>
+                            <div class="newsletter-form__input-wrap">
+                                <svg class="newsletter-form__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <input type="email"
+                                       id="newsletter-email"
+                                       name="email"
+                                       placeholder="Enter your email address..."
+                                       required
+                                       class="newsletter-form__input"
+                                       autocomplete="email">
+                            </div>
+                            <button type="submit" class="button button--primary newsletter-form__submit" data-newsletter-submit>
+                                <span>Subscribe Free</span>
+                                <span aria-hidden="true">→</span>
+                            </button>
+                        </div>
+                        <div class="newsletter-form__status" data-newsletter-status aria-live="polite"></div>
+                        <p class="newsletter-disclaimer">
+                            🔒 We value your privacy. We will never share or sell your email.
+                        </p>
+                    </form>
+                </div>
             </div>
         </div>
     </section>

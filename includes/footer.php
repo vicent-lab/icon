@@ -83,6 +83,25 @@ $footerBusinessHours = company_setting('company_business_hours');
                 <?php endif; ?>
             </ul>
         </div>
+        <div class="footer-column footer-newsletter-col">
+            <h4>Newsletter</h4>
+            <p class="footer-newsletter-text">
+                Subscribe to get quarterly market insights, building cost tips, and new project reveals.
+            </p>
+            <form action="/subscribe.php" method="POST" class="footer-newsletter-form" data-newsletter-form>
+                <div style="position: absolute; left: -9999px; opacity: 0;" aria-hidden="true">
+                    <input type="text" name="website_hp" tabindex="-1" autocomplete="off">
+                </div>
+                <input type="hidden" name="source" value="footer">
+                <div class="footer-newsletter-wrap">
+                    <input type="email" name="email" placeholder="Your email..." required class="footer-newsletter-input" autocomplete="email">
+                    <button type="submit" class="footer-newsletter-btn" aria-label="Subscribe to newsletter" data-newsletter-submit>
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </div>
+                <div class="newsletter-form__status" data-newsletter-status aria-live="polite"></div>
+            </form>
+        </div>
     </div>
     <div class="site-footer__bottom">
         <span>&copy; <?= date('Y') ?> <?= e($footerCompanyName) ?>. All rights reserved.</span>

@@ -65,7 +65,7 @@ function admin_can_manage(string $section): bool
         return in_array($section, ['projects', 'project_images', 'services', 'testimonials', 'team_members', 'blog_posts', 'blog_categories'], true);
     }
 
-    return $role === 'support' && in_array($section, ['contact_messages', 'quote_requests'], true);
+    return $role === 'support' && in_array($section, ['contact_messages', 'quote_requests', 'newsletter_subscribers'], true);
 }
 
 function admin_require_manage(string $section): void
